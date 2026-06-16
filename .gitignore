@@ -1,0 +1,44 @@
+# Virtual environment
+
+venv/
+env/
+.venv/
+
+# Python cache
+
+**pycache**/
+*.pyc
+*.pyo
+*.pyd
+
+# Streamlit secrets
+
+.streamlit/secrets.toml
+
+# Environment variables
+
+.env
+
+# Jupyter Notebook checkpoint
+
+.ipynb_checkpoints/
+
+# OS files
+
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+
+.vscode/
+
+# Temporary files
+
+*.log
+*.tmp
+*.pdf
+
+# Model or embedding cache
+
+.cache/
+sentence_transformers/
