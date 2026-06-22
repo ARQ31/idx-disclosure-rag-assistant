@@ -793,10 +793,10 @@ else:
 # Model selection
 # =========================
 model_options = {
-    "llama-3.1-8b-instant": "Llama 3.1 8B — ⚡ Quick & Cheap",
-    "openai/gpt-oss-20b": "GPT OSS 20B — ⚖️ Balance",
-    "llama-3.3-70b-versatile": "Llama 3.3 70B — 🎯 Most Accurate",
-    "openai/gpt-oss-120b": "GPT OSS 120B — 🧠 Smarter"
+    "llama-3.1-8b-instant": "Llama 3.1 8B — Quick & Cheap",
+    "openai/gpt-oss-20b": "GPT OSS 20B — Balance",
+    "llama-3.3-70b-versatile": "Llama 3.3 70B — Most Accurate",
+    "openai/gpt-oss-120b": "GPT OSS 120B — Smarter"
 }
 
 model_name = st.sidebar.selectbox(
