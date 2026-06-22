@@ -859,7 +859,7 @@ st.markdown("""
 # =========================
 st.markdown("""
 <div class="about-section">
-    <h4>📌 Tentang Project Ini</h4>
+    <h4>Tentang Project Ini</h4>
     <p>
         Aplikasi ini adalah prototype <strong>Retrieval-Augmented Generation (RAG) Assistant</strong> 
         yang dirancang untuk membantu investor dan analis membaca serta menganalisis dokumen 
@@ -869,11 +869,11 @@ st.markdown("""
         dan menjawab pertanyaan berbasis isi dokumen.
     </p>
     <div class="feature-pills">
-        <span class="feature-pill">📄 PDF Processing</span>
-        <span class="feature-pill">🔍 Semantic Search</span>
-        <span class="feature-pill">🤖 AI Summary</span>
-        <span class="feature-pill">⚠️ Risk Signal Detection</span>
-        <span class="feature-pill">❓ Document Q&A</span>
+        <span class="feature-pill">PDF Processing</span>
+        <span class="feature-pill">Semantic Search</span>
+        <span class="feature-pill">AI Summary</span>
+        <span class="feature-pill">Risk Signal Detection</span>
+        <span class="feature-pill">Document Q&A</span>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -884,7 +884,7 @@ st.markdown("""
 # =========================
 st.markdown("""
 <div class="disclaimer-banner">
-    <div class="disclaimer-label">⚠️ Disclaimer Investasi</div>
+    <div class="disclaimer-label">Disclaimer Investasi</div>
     <p>
         Aplikasi ini dibuat untuk keperluan <strong>edukasi dan portfolio AI Engineer</strong>. 
         Seluruh hasil analisis yang dihasilkan oleh sistem ini <strong>bukan merupakan rekomendasi 
@@ -916,7 +916,7 @@ uploaded_file = st.file_uploader(
 if uploaded_file is None:
     st.markdown("""
     <div class="glass-card">
-        <h4>📤 Belum ada dokumen</h4>
+        <h4>Belum ada dokumen</h4>
         <p>Silakan upload file PDF terlebih dahulu untuk mulai menganalisis dokumen. 
         Anda bisa menggunakan laporan keuangan, prospektus, atau dokumen keterbukaan informasi emiten lainnya.</p>
     </div>
@@ -927,7 +927,7 @@ if uploaded_file is None:
 # =========================
 # Process PDF
 # =========================
-with st.spinner("⏳ Membaca PDF dan membuat embedding..."):
+with st.spinner("Membaca PDF dan membuat embedding..."):
     pages = extract_text_from_pdf(uploaded_file)
 
     if len(pages) == 0:
@@ -995,19 +995,19 @@ st.markdown("""
 
 st.markdown("""
 <div class="glass-card">
-    <h4>📝 Ringkasan Otomatis</h4>
+    <h4>Ringkasan Otomatis</h4>
     <p>Fitur ini akan membuat ringkasan otomatis berisi jenis dokumen, poin penting untuk investor, 
     potensi risk signal, dan checklist pertanyaan lanjutan. Klik tombol di bawah untuk memulai analisis.</p>
 </div>
 """, unsafe_allow_html=True)
 
-summary_button = st.button("🚀 Generate AI Disclosure Summary")
+summary_button = st.button("Generate AI Disclosure Summary")
 
 if summary_button:
     if groq_api_key == "":
         st.warning("Groq API Key belum tersedia, jadi summary belum bisa dibuat.")
     else:
-        with st.spinner("🧠 Membuat AI Disclosure Summary..."):
+        with st.spinner("Membuat AI Disclosure Summary..."):
             try:
                 summary_result = generate_disclosure_summary(
                     chunks=chunks,
@@ -1033,7 +1033,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 example_question = st.pills(
-    "💡 Pertanyaan Cepat (Klik untuk langsung analisa)",
+    "Pertanyaan Cepat (Klik untuk langsung analisa)",
     options=[
         "Ringkas isi dokumen ini dalam 5 poin penting.",
         "Apa potensi risiko yang disebutkan dalam dokumen ini?",
@@ -1043,19 +1043,19 @@ example_question = st.pills(
 )
 
 question_input = st.text_area(
-    "✍️ Atau tulis pertanyaan spesifik kamu di sini:",
+    "Atau tulis pertanyaan spesifik kamu di sini:",
     placeholder="Ketik pertanyaan kamu lalu klik tombol Generate Answer di bawah..."
 )
 
 # Priority: if a quick pill is selected, use that. Otherwise use the manual input.
 question = example_question if example_question else question_input
 
-ask_button = st.button("🔍 Generate Answer")
+ask_button = st.button("Generate Answer")
 
 # Trigger generation if the user clicked a pill OR clicked the generate button
 if ask_button or example_question:
     if not question or question.strip() == "":
-        st.warning("⚠️ Pertanyaan tidak boleh kosong. Silakan tulis pertanyaan atau pilih dari Pertanyaan Cepat.")
+        st.warning("Pertanyaan tidak boleh kosong. Silakan tulis pertanyaan atau pilih dari Pertanyaan Cepat.")
         st.stop()
 
     relevant_chunks = search_relevant_chunks(
@@ -1084,7 +1084,6 @@ if ask_button or example_question:
 
     st.markdown("""
     <div class="section-header">
-        <span class="section-icon">💡</span>
         <h3>Answer</h3>
     </div>
     <hr class="section-divider">
@@ -1100,7 +1099,7 @@ if ask_button or example_question:
         st.write(relevant_chunks[0]["text"])
 
     else:
-        with st.spinner("🤖 Membuat jawaban menggunakan LLM..."):
+        with st.spinner("Membuat jawaban menggunakan LLM..."):
             try:
                 answer = generate_answer(
                     question=question,
@@ -1119,7 +1118,7 @@ if ask_button or example_question:
                 source_pages = sorted(list(set(source_pages)))
                 pages_str = ", ".join([f"Halaman {p}" for p in source_pages])
 
-                st.info(f"📄 **Sumber konteks:** {pages_str} — Diambil dari {len(relevant_chunks)} bagian dokumen yang paling relevan.")
+                st.info(f"**Sumber konteks:** {pages_str} — Diambil dari {len(relevant_chunks)} bagian dokumen yang paling relevan.")
 
             except Exception as e:
                 st.error("Terjadi error saat membuat jawaban.")
@@ -1160,18 +1159,6 @@ st.markdown("""
     </div>
 </div>
 """, unsafe_allow_html=True)
-
-
-# # =========================
-# # Disclaimer (bottom)
-# # =========================
-# st.markdown("""
-# <div class="section-header">
-#     <span class="section-icon">📜</span>
-#     <h3>Disclaimer</h3>
-# </div>
-# <hr class="section-divider">
-# """, unsafe_allow_html=True)
 
 st.markdown("""
 <div class="glass-card">
