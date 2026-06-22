@@ -800,7 +800,7 @@ model_options = {
 }
 
 model_name = st.sidebar.selectbox(
-    "🤖 Groq Model Name",
+    "Groq Model Name",
     options=list(model_options.keys()),
     format_func=lambda model: model_options[model],
     index=0,
@@ -809,38 +809,17 @@ model_name = st.sidebar.selectbox(
 
 # Short description for the selected model
 model_descriptions = {
-    "llama-3.1-8b-instant": "💡 Paling cepat & hemat quota. Cocok untuk pertanyaan sederhana.",
-    "openai/gpt-oss-20b": "💡 Keseimbangan antara kecepatan dan kualitas jawaban.",
-    "llama-3.3-70b-versatile": "💡 Jawaban lebih detail & akurat, tapi lebih boros quota.",
-    "openai/gpt-oss-120b": "💡 Kualitas terbaik untuk analisis kompleks. Paling boros quota."
+    "llama-3.1-8b-instant": "Paling cepat & hemat quota. Cocok untuk pertanyaan sederhana.",
+    "openai/gpt-oss-20b": "Keseimbangan antara kecepatan dan kualitas jawaban.",
+    "llama-3.3-70b-versatile": "Jawaban lebih detail & akurat, tapi lebih boros quota.",
+    "openai/gpt-oss-120b": "Kualitas terbaik untuk analisis kompleks. Paling boros quota."
 }
 st.sidebar.caption(model_descriptions[model_name])
-
-# with st.sidebar.expander("📖 Model Guide"):
-#     st.markdown("""
-#     **Llama 3.1 8B Instant**  
-#     Model paling ringan dan cepat. Cocok untuk penggunaan default, demo portfolio, dan menjaga penggunaan quota tetap aman.
-
-#     **GPT OSS 20B**  
-#     Opsi tengah. Kualitas jawaban biasanya lebih baik dari model kecil, tetapi masih lebih ringan dibanding model besar.
-
-#     **Llama 3.3 70B Versatile**  
-#     Cocok untuk ringkasan dokumen, risk signal, dan analisis yang lebih kompleks. Kualitas lebih bagus, tetapi penggunaan quota lebih besar.
-
-#     **GPT OSS 120B**  
-#     Cocok untuk analisis yang lebih berat dan kompleks. Sebaiknya dipakai hanya untuk demo terbatas karena lebih boros quota.
-#     """)
 
 st.sidebar.markdown("---")
 
 # Set default number of retrieved context chunks
 top_k = 5
-
-# show_context = st.sidebar.checkbox(
-#     "🔬 Debug: Tampilkan retrieved context",
-#     value=False,
-#     help="Aktifkan untuk melihat potongan dokumen mentah yang diambil oleh sistem. Fitur ini untuk keperluan debugging."
-# )
 
 # =========================
 # Hero Header
