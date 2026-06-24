@@ -1,8 +1,8 @@
-#IDX Disclosure RAG Assistant
+# IDX Disclosure RAG Assistant
 
 A modern, fast, and intelligent Retrieval-Augmented Generation (RAG) application built with Streamlit. This tool helps investors, analysts, and the general public to quickly extract, analyze, and summarize critical information from Indonesian Stock Exchange (IDX) corporate disclosure PDFs (Keterbukaan Informasi).
 
-##Features
+## Features
 
 - **Intelligent Financial PDF Parsing**: Utilizes `pdfplumber` to accurately preserve the structure of complex financial tables (assets, liabilities, EPS, etc.) preventing data corruption commonly found in standard OCR or PDF text extractors.
 - **Advanced Text Normalization**: Custom Regex pipelines designed specifically for Indonesian financial terminology to cleanly format numeric data and keywords before embedding.
