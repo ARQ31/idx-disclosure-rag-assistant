@@ -11,7 +11,7 @@ A modern, fast, and intelligent Retrieval-Augmented Generation (RAG) application
 - **Interactive UI**: A stunning, responsive "Glassmorphism" dark-themed UI built natively in Streamlit with intelligent "Quick Question" pills for seamless user experience.
 - **Accurate Sourcing**: Prevents hallucinations by strictly grounding the LLM to the uploaded document and providing precise page number citations for every generated claim.
 
-##Technology Stack
+## Technology Stack
 
 - **Frontend**: Streamlit, Custom CSS (Glassmorphism UI)
 - **PDF Extraction**: `pdfplumber`, `pypdf`
